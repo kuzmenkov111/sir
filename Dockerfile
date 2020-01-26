@@ -8,7 +8,7 @@ RUN useradd -u 555 dockerapp\
     && chown -R dockerapp:dockerapp /home/dockerapp  \
     && addgroup dockerapp staff
 	
-RUN apt update \
+RUN apt-get update \
 	&& apt install -y locales \	
 	&& echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
 	&& locale-gen en_US.utf8 \
@@ -17,7 +17,7 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 
 ## Install some useful tools and dependencies for MRO
-RUN apt update \
+RUN apt-get update \
 	&& apt install -y --no-install-recommends \
 	apt-utils \
 	ca-certificates \
@@ -26,7 +26,7 @@ RUN apt update \
 	&& rm -rf /var/lib/apt/lists/*
 
 # system libraries of general use
-RUN apt update && apt install -y \
+RUN apt-get update && apt-get install -y \
     sudo \
     pandoc \
     pandoc-citeproc \
@@ -44,7 +44,7 @@ RUN apt update && apt install -y \
     unzip
 
 # system library dependency for the euler app
-RUN apt update && apt install -y \
+RUN apt-get update && apt-get install -y \
     libmpfr-dev \
     gfortran \
     aptitude \
