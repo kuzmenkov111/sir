@@ -85,21 +85,21 @@ RUN rm microsoft-r-open-3.5.1.tar.gz \
 
 
 # basic shiny functionality
-RUN sudo R -e "install.packages('rmarkdown', repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('shiny'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('shinyjs'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('shinythemes'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('dplyr'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('data.table'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('remotes'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('ggplot2'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('deSolve'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('quantmod'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('ggthemes'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('highcharter'), repos='https://cran.amrcloud.net/')" \
-&& R -e "install.packages(c('shinyWidgets'), repos='https://cran.amrcloud.net/')" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('JohnCoene/waiter')\"" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('dreamRs/shinybusy')\"" 
+RUN sudo R -e "install.packages('rmarkdown')" \
+&& R -e "install.packages(c('shiny'))" \
+&& R -e "install.packages(c('shinyjs'))" \
+&& R -e "install.packages(c('shinythemes'))" \
+&& R -e "install.packages(c('dplyr'))" \
+&& R -e "install.packages(c('data.table'))" \
+&& R -e "install.packages(c('remotes'))" \
+&& R -e "install.packages(c('ggplot2'))" \
+&& R -e "install.packages(c('deSolve'))" \
+&& R -e "install.packages(c('quantmod'))" \
+&& R -e "install.packages(c('ggthemes'))" \
+&& R -e "install.packages(c('highcharter'),)" \
+&& R -e "install.packages(c('shinyWidgets'))" \
+&& R -e "remotes::install_github('JohnCoene/waiter')" \
+&& R -e "remotes::install_github('dreamRs/shinybusy')"
 
 VOLUME /home/dockerapp/app
 EXPOSE 3838
